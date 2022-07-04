@@ -1,0 +1,96 @@
+.logo {
+    @include bp-all {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 0 15px 0 27px;
+        max-width: 100%;
+    }
+    
+    
+    @include bp-till(tablet) {
+        border: none;
+        .corner {
+            display: none;
+        }
+    }
+    
+    @include bp-from(tablet) {
+        border: 1px solid $color-gray;
+        border-bottom: none;
+    }
+    
+    &__img {
+        margin-top: -12px;
+        width: 100%;
+        @include bp-till(tablet) {
+            margin-top: 0;
+        }
+    }
+    
+    
+}
+
+.corner-wrapper {
+    @include bp-all {
+        color: white;
+        
+    }
+    
+    @include bp-till(desktop) {
+        height: 80px;
+    }
+    
+    @include bp-till(tablet) {
+        height: 60px;
+    }
+    
+    @include bp-from(desktop) {
+        height: 100px;
+    }
+}
+
+.corner-tl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-width: 1px;
+    border-style: solid none none solid;
+    border-color: white;
+}
+
+.corner-tr {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-width: 1px;
+    border-style: solid solid none none;
+    border-color: white;
+}
+
+.corner-br {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-width: 1px;
+    border-style: none solid solid none;
+    border-color: white;
+}
+
+.corner-bl {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-width: 1px;
+    border-style: none none solid solid;
+    border-color: white;
+}

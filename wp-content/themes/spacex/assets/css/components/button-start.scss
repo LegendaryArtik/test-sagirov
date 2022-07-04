@@ -1,0 +1,92 @@
+button {
+    height: auto;
+    padding: 0;
+    overflow: visible;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    vertical-align: baseline;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: none;
+    border: 0 solid;
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+}
+
+.button-start {
+    --border-width: 11px;
+    --border-thickness: 1px;
+    
+    --border-width-shift: 1px;
+    
+    padding: 10px 22px;
+    transition: all ease-in-out .3s;
+    
+    color: white;
+    position: relative;
+    
+    font-size: 14px;
+    font-weight: 100;
+    
+    border: 1px solid transparent;
+    border-image: linear-gradient(
+                    to right top,
+                    #3968a6 20%,
+                    transparent 50%,
+                    transparent 35%,
+                    #3968a6 100%
+    );
+    border-image-slice: 1;
+    
+    &:hover {
+        background-image: linear-gradient(to right top, #3968a6 0%, transparent 100%, #3968a6 100%);
+    }
+    
+    &__arrow {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        
+        &--dir {
+            &-left-bottom {
+                bottom: 0;
+                left: 0;
+                
+                border-bottom: 1px solid white;
+                border-left: 1px solid white;
+                border-width: 1px;
+                
+                // box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5),
+                //   -1px -1px 1px rgba(255, 255, 255, 0.5) inset;
+                
+                &::before {
+                    content: "";
+                    width: 100px;
+                    height: 10px;
+                    background: red;
+                }
+            }
+            
+            &-right-top {
+                top: 0;
+                right: 0;
+                
+                border-top: 1px solid white;
+                border-right: 1px solid white;
+                border-width: 1px;
+                
+                // box-shadow: -1px -1px 1px rgba(255, 255, 255, 0.5),
+                //   -1px -1px 1px rgba(255, 255, 255, 0.5) inset;
+            }
+        }
+    }
+}

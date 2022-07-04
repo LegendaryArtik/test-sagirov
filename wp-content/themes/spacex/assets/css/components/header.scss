@@ -1,0 +1,24 @@
+@import '../base/colors';
+@import '../base/layout';
+
+.header {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.22);
+    border-bottom: $color-gray 1px solid;
+    
+    @include bp-till(bp-1200) {
+        padding: 0 20px;
+    }
+    
+    &__inner {
+        margin: auto;
+        width: 100%;
+        max-width: $container-width;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+

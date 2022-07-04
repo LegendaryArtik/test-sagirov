@@ -1,0 +1,130 @@
+@import './components/app';
+@import './components/header';
+@import './components/logo';
+@import './components/menu';
+@import './components/hamburger';
+@import './components/features-list';
+@import './components/features-item';
+@import './components/button-start';
+
+html,
+body {
+    height: 100vh;
+}
+
+body {
+    background: url('../images/bg.jpg') no-repeat top;
+    font-family: 'Museo Sans Cyrl', sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    background-size: unset;
+    color: white;
+    @include bp-till(desktop) {
+        background: url('../images/bg-mobile.jpg') no-repeat top;
+        background-size: cover;
+    }
+    @include bp-from(desktop-xl) {
+        background-repeat: repeat;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: auto;
+}
+
+.content {
+    
+    
+    @include bp-all {
+        padding-top: 9%;
+        width: 100%;
+        
+        &-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+    
+    @include bp-from(tablet) {
+        max-width: 585px;
+    }
+    @include bp-till(desktop) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+    }
+    
+    &__button-start {
+        margin-top: 85px;
+        position: relative;
+        transition: transform ease-in-out .25s;
+        @include bp-till(desktop) {
+            margin: 20px auto;
+        }
+        
+        &::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            transform: scale(1.17);
+            height: 50px;
+            background: url(../images/line.png) no-repeat;
+            left: 120%;
+            background-size: contain;
+            top: 60%;
+            @include bp-till(bp-1200) {
+                transform: scale(1.1);
+                left: 115%;
+            }
+            @include bp-till(bp-1120) {
+                transform: scale(.9);
+                left: 100%;
+            }
+            @include bp-till(desktop) {
+                display: none;
+            }
+        }
+    }
+}
+
+.title {
+    width: fit-content;
+    font-weight: 700;
+    font-size: 58px;
+    background: #FFFFFF;
+    background: linear-gradient(to right, #FFFFFF 0%, #FF784F 30%, #fb3b00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    clip-path: polygon(100% 27%, 97% 47%, 96% 64%, 95% 81%, 95% 100%, 0 100%, 0 0, 100% 0);
+    
+    @include bp-till(bp-1200) {
+        font-size: 55px;
+    }
+    
+    @include bp-till(bp-1120) {
+        font-size: 47px;
+    }
+    @include bp-till(desktop) {
+        font-size: 50px;
+        clip-path: none;
+    }
+    @include bp-till(phone) {
+        font-size: 35px;
+        clip-path: none;
+    }
+}
+
+.subtitle {
+    font-size: 25px;
+    background: #FFFFFF;
+    background: linear-gradient(to right, #FFFFFF 0%, #FF784F 50%, #FF450C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @include bp-till(phone) {
+        font-size: 20px;
+    }
+}

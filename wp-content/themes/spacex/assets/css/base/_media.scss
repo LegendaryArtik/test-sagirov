@@ -1,0 +1,50 @@
+$breakpoints: (
+        'phone': 500px,
+        'tablet': 768px,
+        'desktop': 1020px,
+        'desktop-m': 1360px,
+        'desktop-l': 1680px,
+        'desktop-xl': 1920px,
+        'bp-1120': 1120px,
+        'bp-1200': 1200px,
+);
+
+@function get-bp($type) {
+    @if not map-has-key($breakpoints, $type) {
+        @error 'Undefined breakpoint #{$type}';
+    }
+    
+    @return map-get($breakpoints, $type);
+}
+
+
+@mixin bp-all {
+    @media screen {
+        @content;
+    }
+}
+
+@mixin bp-from($type) {
+    $breakpoint: get-bp($type);
+    
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin bp-till($type) {
+    $breakpoint: get-bp($type);
+    
+    @media screen and (max-width: $breakpoint - 1) {
+        @content;
+    }
+}
+
+@mixin bp-between($type-from, $type-to) {
+    $breakpoint-from: get-bp($type-from);
+    $breakpoint-to: get-bp($type-to);
+    
+    @media screen and (min-width: $breakpoint-from) and (max-width: $breakpoint-to - 1) {
+        @content;
+    }
+}

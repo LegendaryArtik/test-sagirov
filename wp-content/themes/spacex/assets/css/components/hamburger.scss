@@ -1,0 +1,118 @@
+$block: '.hamburger';
+$dark: #212121;
+$light: #efefef;
+$color: #b3e5fc;
+
+
+@mixin icon($height, $width) {
+    transition-duration: 0.5s;
+    position: absolute;
+    height: $height;
+    width: $width;
+    background-color: $light;
+}
+
+@mixin icon-before($height, $width, $top) {
+    transition-duration: 0.5s;
+    position: absolute;
+    width: $width;
+    height: $height;
+    background-color: $light;
+    content: "";
+    top: $top;
+}
+
+@mixin icon-after($height, $width, $top) {
+    transition-duration: 0.5s;
+    position: absolute;
+    width: $width;
+    height: $height;
+    background-color: $light;
+    content: "";
+    top: $top;
+}
+
+#{$block} {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transition-duration: 0.5s;
+    z-index: 888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    @include bp-from(desktop) {
+        display: none;
+    }
+    
+    &__icon {
+        &--dir {
+            &-left {
+                @include icon(2px, 15px);
+                left: 0;
+                
+                &::before {
+                    @include icon-before(2px, 15px, -10px);
+                    left: 0;
+                }
+                
+                &::after {
+                    @include icon-after(2px, 15px, 10px);
+                    left: 0;
+                }
+                
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            
+            &-right {
+                @include icon(2px, 15px);
+                left: 15px;
+                
+                &::before {
+                    right: 0;
+                    @include icon-before(2px, 15px, -10px);
+                }
+                
+                &::after {
+                    right: 0;
+                    @include icon-after(2px, 15px, 10px);
+                }
+            }
+        }
+    }
+    
+    &--opened {
+        #{$block}__icon--dir-left {
+            transition-duration: 0.5s;
+            background: transparent;
+            
+            &::before {
+                transform: rotateZ(45deg) scaleX(1.4) translate(2px, 2px);
+            }
+            
+            &::after {
+                transform: rotateZ(-45deg) scaleX(1.4) translate(2px, -2px);
+            }
+        }
+        
+        #{$block}__icon--dir-right {
+            transition-duration: 0.5s;
+            background: transparent;
+            
+            &::before {
+                transform: rotateZ(-45deg) scaleX(1.4) translate(-2px, 2px);
+            }
+            
+            &::after {
+                transform: rotateZ(45deg) scaleX(1.4) translate(-2px, -2px);
+            }
+        }
+    }
+    
+    &:hover {
+        cursor: pointer;
+    }
+}

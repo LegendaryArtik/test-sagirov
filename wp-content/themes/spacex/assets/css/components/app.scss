@@ -1,0 +1,24 @@
+@import '../base/typography';
+@import '../base/media';
+
+@include font-face(
+  'Museo Sans Cyrl',
+  '../fonts/MuseoSans/MuseoSansCyrl-100',
+  100,
+  normal
+);
+
+@include font-face(
+  'Museo Sans Cyrl',
+  '../fonts/MuseoSans/MuseoSansCyrl-300',
+  300,
+  normal
+);
+
+@include font-face(
+  'Museo Sans Cyrl',
+  '../fonts/MuseoSans/MuseoSansCyrl-700',
+  700,
+  normal
+);
+

@@ -1,0 +1,19 @@
+.features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-top: 40px;
+  
+  @include bp-from(desktop){
+    position: relative;
+    width: 100%;
+    right: -34px;
+  }
+  @include bp-till(desktop){
+    margin: auto;
+    text-align: center;
+  }
+  
+}
